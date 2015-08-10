@@ -14,9 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('projects', 'ProjectsController');
-// Route::resource('tasks', 'TasksController');
-Route::resource('projects.tasks', 'TasksController');
 
 Route::bind('tasks', function($value, $route) {
 	return App\Task::whereSlug($value)->first();
@@ -24,3 +21,5 @@ Route::bind('tasks', function($value, $route) {
 Route::bind('projects', function($value, $route) {
 	return App\Project::whereSlug($value)->first();
 });
+Route::resource('projects', 'ProjectsController');
+Route::resource('projects.tasks', 'TasksController');
