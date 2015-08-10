@@ -25,5 +25,6 @@ install:
 before_script:
   - cp .env.example .env
   - php artisan key:generate
+  - mysql -e 'create database lar_example;'
 
 script: vendor/bin/phpunit
